@@ -1,0 +1,53 @@
+<div class="payment-info">
+	<div *ngIf="attendeeStep===6" class="top_back_cart_area_fixed">
+		<div class="top_back_cart_area">
+			<span class="material-icons top_cart_icons" (click)="backState()">
+          arrow_back_ios
+        </span>
+		</div>
+	</div>
+	<div class="payment-info-container">
+		<span>Payment Info</span>
+		<div class="info-row">
+			<span class="row-title">Card Number
+            <span>*</span>
+			</span>
+			<input class="row-input" type="text" id="cardNumber" value={{paymentInfo.cardNumber}} (change)="changeValue($event, 'cardNumber')" />
+      </div>
+			<div class="info-row">
+				<span class="row-title">
+      First Name
+      <span>*</span>
+				</span>
+				<input class="row-input" type="text" id="firstname" value={{paymentInfo.firstname}} (change)="changeValue($event, 'firstname')" />
+	</div>
+				<div class="info-row">
+					<span class="row-title">Last Name
+        <span>*</span>
+					</span>
+					<input class="row-input" type="text" id="lastname" value={{paymentInfo.lastname}} (change)="changeValue($event, 'lastname')" />
+	  </div>
+					<div class="info-row">
+						<span class="row-title">Expires On(MM/YY)
+        <span>*</span>
+						</span>
+						<input class="row-input" type="text" id="expireDate" value={{paymentInfo.expireDate}} (change)="changeValue($event, 'expireDate')" />
+				</div>
+						<div class="info-row">
+							<span class="row-title">Security Code
+        <span>*</span>
+							</span>
+							<input class="row-input" type="text" id="securityCode" value={{paymentInfo.securityCode}} (change)="changeValue($event, 'securityCode')" />
+      </div>
+							<div>
+								<div *ngIf="isRequired" class="info-row">
+									<span class="warning-message">
+            You should fill in all required inputs.
+          </span>
+								</div>
+							</div>
+							<div class="checkout-button">
+								<button class="checkout" (click)="nextStep()"><span>Next</span></button>
+							</div>
+						</div>
+					</div>

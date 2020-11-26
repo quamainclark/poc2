@@ -1,0 +1,81 @@
+<div class="contact-info">
+	<div *ngIf="attendeeStep===3" class="top_back_cart_area_fixed">
+		<div class="top_back_cart_area">
+			<span class="material-icons top_cart_icons" (click)="backState()">
+          arrow_back_ios
+        </span>
+		</div>
+	</div>
+	<div class="contact-info-container">
+		<span>Contact Info</span>
+		<div class="info-row">
+			<span class="row-title">
+      First Name
+      <span>*</span>
+			</span>
+			<input class="row-input" type="text" id="firstname" value={{contactInfo.firstname}} (change)="changeValue($event, 'firstname')" />
+	</div>
+			<div class="info-row">
+				<span class="row-title">Last Name
+        <span>*</span>
+				</span>
+				<input class="row-input" type="text" id="lastname" value={{contactInfo.lastname}} (change)="changeValue($event, 'lastname')" />
+	  </div>
+				<div class="info-row">
+					<span class="row-title">Email
+        <span>*</span>
+					</span>
+					<input class="row-input" type="text" id="email" value={{contactInfo.email}} (change)="changeValue($event, 'email')" />
+      </div>
+					<div class="info-row">
+						<span class="row-title">Phone number
+				</span>
+						<input class="row-input" type="text" id="phoneNumber" value={{contactInfo.phone}} (change)="changeValue($event, 'phone')" />
+      </div>
+						<div class="info-row">
+							<span class="row-title">Address 1
+            <span>*</span>
+							</span>
+							<input class="row-input" type="text" id="address1" value={{contactInfo.address1}} (change)="changeValue($event, 'address1')" />
+      </div>
+							<div class="info-row">
+								<span class="row-title">Address 2
+        </span>
+								<input class="row-input" type="text" id="address2" value={{contactInfo.address2}} (change)="changeValue($event, 'address2')" />
+      </div>
+								<div class="info-row">
+									<span class="row-title">City
+        <span>*</span>
+									</span>
+									<input class="row-input" type="text" id="city" value={{contactInfo.city}} (change)="changeValue($event, 'city')" />
+      </div>
+									<div class="info-row">
+										<span class="row-title">State
+                <span>*</span>
+										</span>
+										<input class="row-input" type="text" id="state" value={{contactInfo.state}} (change)="changeValue($event, 'state')" />
+      </div>
+										<div class="info-row">
+											<span class="row-title">Zip
+            <span>*</span>
+											</span>
+											<input class="row-input" type="text" id="zip" value={{contactInfo.zip}} (change)="changeValue($event, 'zip')" />
+      </div>
+											<div class="info-row">
+												<span class="row-title">Country
+              <span>*</span>
+												</span>
+												<input class="row-input" type="text" id="country" value={{contactInfo.country}} (change)="changeValue($event, 'country')" />
+      </div>
+												<div>
+													<div *ngIf="isRequired" class="info-row">
+														<span class="warning-message">
+            You should fill in all required inputs.
+          </span>
+													</div>
+												</div>
+												<div class="checkout-button">
+													<button class="checkout" (click)="nextStep()"><span>Next</span></button>
+												</div>
+											</div>
+										</div>

@@ -1,0 +1,47 @@
+<div class="my-cart">
+	<div *ngIf="attendeeStep===2" class="top_back_cart_area_fixed">
+		<div class="top_back_cart_area">
+			<span class="material-icons top_cart_icons" (click)="backState()">
+          arrow_back_ios
+        </span>
+		</div>
+	</div>
+	<div class="my-cart-items">
+		<div *ngFor="let item of myCart" class="my-cart-one-item">
+			<img src={{item.url}} class="one-item-img" />
+			<div class="one-item-wrap">
+				<div class="one-item-detail">
+					<div class="one-item-center item-title">
+						<span>{{item.name}}</span>
+					</div>
+					<div class="one-item-center item-price">
+						<span>${{item.price}}</span>
+					</div>
+					<div class="one-item-center">
+						<span>Quantity: <strong>{{item.quantity}}</strong></span>
+					</div>
+				</div>
+				<div class="control-buttons">
+					<span class="material-icons one-item-button" (click)="onIncrease(item)">
+            keyboard_arrow_up
+          </span>
+					<span class="material-icons one-item-button" (click)="onDecrease(item)">
+            keyboard_arrow_down
+          </span>
+					<span class="material-icons delete_forever one-item-button" (click)="onDelete(item)">
+            delete_forever
+          </span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="total-price">
+		<div class="division"></div>
+		<div class="subtotal-price">
+			<span>Subtotal Price: <strong>${{subtotalPrice}}</strong></span>
+		</div>
+	</div>
+	<div class="checkout-button">
+		<button class="checkout" (click)="nextStep()"><span>Proceed to Checkout</span></button>
+	</div>
+</div>

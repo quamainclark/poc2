@@ -1,0 +1,62 @@
+<div class="review-order">
+	<div *ngIf="attendeeStep===7" class="top_back_cart_area_fixed">
+		<div class="top_back_cart_area">
+			<span class="material-icons top_cart_icons" (click)="backState()">
+          arrow_back_ios
+        </span>
+		</div>
+	</div>
+	<div class="my-cart-items">
+		<div *ngFor="let item of myCart" class="my-cart-one-item">
+			<img src={{item.url}} class="one-item-img" />
+			<div class="one-item-wrap">
+				<div class="one-item-detail">
+					<div class="one-item-center item-title">
+						<span>{{item.name}}</span>
+					</div>
+					<div class="one-item-center item-price">
+						<span>${{item.price}}</span>
+					</div>
+					<div class="one-item-center">
+						<span>Quantity: <strong>{{item.quantity}}</strong></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="parent-price">
+		<div class="division"></div>
+		<div class="child-price">
+			<span>Total Price:</span>
+			<span><strong>${{orderDetail.total}}</strong></span>
+		</div>
+		<div class="child-price">
+			<span>Subtotal Price:</span>
+			<span><strong>${{orderDetail.subTotal}}</strong></span>
+		</div>
+		<div class="child-price">
+			<span>Tax Price:</span>
+			<span><strong>${{orderDetail.taxTotal}}</strong></span>
+		</div>
+		<div class="child-price">
+			<span>Shipping Total Price:</span>
+			<span><strong>${{orderDetail.shippingTotal}}</strong></span>
+		</div>
+		<div class="child-price">
+			<span>Shipping Tax Price:</span>
+			<span><strong>${{orderDetail.shippingTax}}</strong></span>
+		</div>
+		<div class="division"></div>
+		<div class="child-price">
+			<span>Ship To:</span>
+			<div class="shipping-address">
+        <span><strong>{{shippingAddress.address1}}</strong></span>
+			  <span><strong>{{shippingAddress.city + ' ' + shippingAddress.state + ' ' + shippingAddress.country + ' ' + shippingAddress.zip}}</strong></span>
+			</div>
+		</div>
+    <div class="division"></div>
+	</div>
+	<div class="checkout-button">
+		<button class="checkout" (click)="nextStep()"><span>Order Now</span></button>
+	</div>
+</div>

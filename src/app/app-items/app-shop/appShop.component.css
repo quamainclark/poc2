@@ -1,0 +1,19 @@
+.shopping_cart {
+  font-size: 40px;
+}
+
+.shopping_cart_wrap {
+  background: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: red;
+}
+
+.shopping_cart_wrap span {
+  cursor: pointer;
+}

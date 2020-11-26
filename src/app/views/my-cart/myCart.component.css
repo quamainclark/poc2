@@ -1,0 +1,116 @@
+.top_back_cart_area_fixed {
+  position: fixed;
+  margin-top: -55px;
+  cursor: pointer;
+}
+
+.my-cart-items {
+  margin-top: 30px;
+}
+
+.my-cart-one-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-style: outset;
+  margin: 5px;
+}
+
+.my-cart-one-item:hover {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-style: inset;
+  margin: 5px;
+}
+
+.one-item-img {
+  width: 120px;
+}
+
+.one-item-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: 15px;
+}
+
+.one-item-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.one-item-center {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 3px;
+}
+
+.item-price {
+  font-family: fantasy;
+}
+
+.item-title {
+  font-family: sans-serif;
+}
+
+.control-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete_forever {
+  color: brown;
+}
+
+.one-item-button {
+  cursor: pointer;
+}
+
+.one-item-button:hover {
+  color: #ff0000;
+}
+
+.division {
+  width: 100%;
+  height: 2px;
+  background: #8eb38a;
+  margin: 3px 0 5px 0;
+}
+
+.subtotal-price {
+  margin: 15px 5px 15px 5px;
+  font-size: 1.5em;
+}
+
+.checkout-button {
+  margin-bottom: 65px;
+  display: flex;
+}
+
+.checkout {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: #7d7d7d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout:hover {
+  background-color: #333;
+  cursor: pointer;
+}
+
+.checkout:focus {
+  outline: none;
+  background-color: #434356;
+}
+
+.top_cart_icons {
+  font-size: 40px;
+  margin-left: 10px;
+}

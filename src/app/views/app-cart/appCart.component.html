@@ -1,0 +1,92 @@
+<div class="app-cart">
+	<div class="shift-button">
+		<div *ngIf="!isCartShowed" class="wrapp-arrow-button" (click)="onShift()">
+			<span class="material-icons">
+        arrow_back
+      </span>
+		</div>
+
+		<div *ngIf="isCartShowed" class="wrapp-arrow-button" (click)="onShift()">
+			<span class="material-icons">
+        arrow_forward
+      </span>
+		</div>
+	</div>
+	<div *ngIf="isCartShowed" class="cart-area" [style.height.px]="height">
+		<input *ngIf="attendeeStep===0" type="text" class="search-field" placeholder="search" [(ngModel)]="search_word" (ngModelChange)="this.searchWordUpdate.next($event)" >
+		<div *ngIf="attendeeStep===1" class="top_back_cart_area_fixed">
+			<div class="top_back_cart_area">
+				<span class="material-icons top_cart_icons" (click)="backState()">
+          arrow_back_ios
+        </span>
+				<span class="material-icons top_cart_icons" (click)="showCart($event)">
+          add_shopping_cart
+        </span>
+			</div>
+		</div>
+
+		<div *ngIf="attendeeStep===0" class="items">
+			<div *ngFor="let item of searched_items" class="item">
+				<div class="item-image">
+					<img src={{item.url}} class={{item.id}} (click)="hostItem($event)" />
+        </div>
+					<div class="item-name">
+						{{item.name}}
+					</div>
+					<div class="item-price">
+						${{item.price}}
+					</div>
+				</div>
+			</div>
+			<div class="virtual-item-button" (click)="onClickAttendeeItem()">
+				<div class="itemDetailShow">
+					<div *ngIf="attendeeStep===1" class="item-detail-image">
+						<img *ngIf="attendeeStep===1" class="item-detail-image-tag" src={{clickedItem.url}} width="300" height="300" />
+          </div>
+						<div *ngIf="attendeeStep===1" class="item-detail item-detail-title">
+							<span *ngIf="attendeeStep===1">{{clickedItem.name}}</span>
+						</div>
+						<div *ngIf="attendeeStep===1" class="item-detail item-detail-price">
+							<span *ngIf="attendeeStep===1">${{clickedItem.price}}</span>
+						</div>
+						<div>
+							<span *ngIf="attendeeStep===1" class="item-detail-common-title">Description</span>
+							<div class="item-detail item-detail-description" id="item-detail-description">
+							</div>
+						</div>
+						<div>
+							<span *ngIf="attendeeStep===1" class="item-detail-common-title">Product Detail</span>
+							<div class="item-detail item-detail-list" id="item-detail-list">
+							</div>
+						</div>
+						<span *ngIf="attendeeStep===1" class="item-detail-common-title">Quantity</span>
+						<div *ngIf="attendeeStep===1" class="quantity_calcul_area">
+							<div class="minus_plus" (click)="decreaseQuantity(clickedItem)"><span>-</span></div>
+							<div class="quantity"><span>{{totalQuantity}}</span></div>
+							<div class="minus_plus" (click)="increaseQuantity(clickedItem)"><span>+</span></div>
+						</div>
+						<div #showCartElement *ngIf="attendeeStep===1" class="add_to_cart_button"
+							(click)="showCart($event); $event.stopPropagation()">
+							<span>Show My Cart</span>
+						</div>
+					</div>
+				</div>
+				<my-cart *ngIf="attendeeStep===2" [attendeeStep]="attendeeStep" [myCart]="myCart"
+					(gotoFirstStep)="gotoFirstStep()" (gotoNextStep)="gotoNextStep()"></my-cart>
+				<contact-info *ngIf="attendeeStep===3" [attendeeStep]="attendeeStep" [contactInfo]="contactInfo"
+					[myCart]="myCart" (gotoNextStep)="gotoNextStep_contactInfo($event)"
+					(gotoBackStep)="backState_contactInfo($event)">
+				</contact-info>
+				<billing-address *ngIf="attendeeStep===4" [attendeeStep]="attendeeStep"
+					[billing_address]="billing_address" (gotoNextStep)="gotoNextStep_bill($event)"
+					(gotoBackStep)="backState_bill($event)"></billing-address>
+				<shipping-address *ngIf="attendeeStep===5" [attendeeStep]="attendeeStep"
+					[shipping_address]="shipping_address" (gotoNextStep)="gotoNextStep_ship($event)"
+					(gotoBackStep)="backState_ship($event)"></shipping-address>
+				<payment-info *ngIf="attendeeStep===6" [attendeeStep]="attendeeStep" [paymentInfo]="payment_info"
+					(gotoNextStep)="gotoNextStep_payment($event)" (gotoBackStep)="backState_payment($event)">
+				</payment-info>
+				<review-order *ngIf="attendeeStep===7" [attendeeStep]="attendeeStep" [myCart]="myCart"
+					(gotoBackStep)="backState()" (gotoNextStep)="gotoNextStep()"></review-order>
+			</div>
+		</div>

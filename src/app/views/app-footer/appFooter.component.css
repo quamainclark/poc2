@@ -1,0 +1,21 @@
+.app-footer {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  height: 50px;
+  background: grey;
+  color: white;
+}
+
+.sub-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.sub-wrapper span {
+  margin: 0 5px;
+  cursor: pointer;
+}

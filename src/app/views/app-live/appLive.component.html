@@ -1,0 +1,19 @@
+<div class="app-live">
+	<app-time></app-time>
+	<app-cart [items]="items"></app-cart>
+	<!-- <app-shop ></app-shop> -->
+	<div class="box" cdkDrag (click)="hostItems()">
+		<span class="material-icons shopping_cart" >
+      add_shopping_cart
+    </span>
+	</div>
+	<div *ngIf="isShow" class="hosted-group">
+		<div *ngFor="let item of items" class="hosted-area">
+			<hosted-product [items]="items" child_class={{item.id}}></hosted-product>
+		</div>
+	</div>
+	<div *ngIf="!isShow" class="attendee-hosted-group">
+		<div *ngFor="let item of items" class="attendee-hosted-area">
+			<attendee-hosted-product [items]="items" child_class={{item.id}}></attendee-hosted-product>
+		</div>
+	</div>
